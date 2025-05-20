@@ -1,0 +1,109 @@
+﻿@model List<NUTRI_Project.Models.Cart>
+@using NUTRI_Project.Models
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="breadcrumb-section set-bg " data-setbg="/Image/BG/BG7.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text text-dark">
+                    <h2>Sản phẩm</h2>
+                    <div class="breadcrumb__option">
+                        <a href="./index">Home</a>
+                        <span> Shop</span>
+                        <span>- ShoppingCart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="shoping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product"> Sản Phẩm</th>
+                                <th>Đơn Giá</th>
+                                <th>Số Lượng</th>
+                                <th>Tổng Tiền</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        @item.Name
+                                    </td>
+                                    @using (Html.BeginForm("UpdateCart", "Cart", new { iProductID = item.ProductID }))
+                                    {
+                                        <td class="shoping__cart__price">
+                                            @string.Format("{0:N0}", @item.Pice)
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input min="1" name="quantity" value="@item.quantity" />
+                                                </div>
+                                            </div>        
+
+                                        </td>
+
+                                        <td class="shoping__cart__total">
+                                            @string.Format("{0:N0}", item.Pice * item.quantity)
+                                        </td>
+                                        <td class="shoping__cart__item__close">
+                                            @Html.ActionLink("Xóa", "DeleteCart", new { iProductID = item.ProductID }, new { @class = "btn btn-warning" })
+                                        </td>
+                                        <td>
+                                            <input type="submit" value="Cập nhật" class="btn btn-success" />
+                                        </td>
+                                    }
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                        <tr>
+                            <td class="shoping__cart__item">
+                            </td>
+                            <td class="shoping__cart__price">
+                            </td>
+                            <td class="shoping__cart__quantity">
+                                <h4 style="font-size: 20px; font-weight: 700; color: #1c1c1c; padding-bottom: 20px;display:contents">Tổng Cộng</h4>
+                            </td>
+                            <td class="shoping__cart__total">
+                                @string.Format("{0:N0}", @ViewBag.Total)
+                            <td>
+                            <td class="shoping__cart__item__close">
+                                VNĐ
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__btns">
+                    <a href="@Url.Action("Shop","Home")" class="primary-btn cart-btn">Tiếp Tục Mua Sắm</a>
+                    <a href="@Url.Action("Order","Cart")" class="primary-btn cart-btn cart-btn-right CheckOutBtn btn btn-danger">
+                        Thanh Toán
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="78324ef5113744299a4d59ed49ba3503" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="QLFruitModel.Admin" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLFruitModel.Customer" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLFruitModel.OrderDetail" Width="1.5" PointX="8.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLFruitModel.StatusOrder" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLFruitModel.Type" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="QLFruitModel.FK__OrderDeta__Statu__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLFruitModel.FK__OrderDeta__Statu__5DCAEF64" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLFruitModel.Categogy" Width="1.5" PointX="0.875" PointY="10.375" />
+        <EntityTypeShape EntityType="QLFruitModel.Product" Width="1.5" PointX="9.125" PointY="12.875" />
+        <AssociationConnector Association="QLFruitModel.FK__Product__Categor__58D1301D" />
+        <AssociationConnector Association="QLFruitModel.FK__Product__Categor__59C55456" />
+        <AssociationConnector Association="QLFruitModel.FK__Product__Categor__5AB9788F" />
+        <AssociationConnector Association="QLFruitModel.FK__Product__Categor__5BAD9CC8" />
+        <AssociationConnector Association="QLFruitModel.FK__OrderDeta__Produ__5AEE82B9" />
+        <AssociationConnector Association="QLFruitModel.FK__OrderDeta__Produ__5BE2A6F2" />
+        <AssociationConnector Association="QLFruitModel.FK__Product__TypeID__6383C8BA" />
+        <AssociationConnector Association="QLFruitModel.FK__Product__TypeID__6477ECF3" />
+        <EntityTypeShape EntityType="QLFruitModel.Cart" Width="1.5" PointX="11.25" PointY="8.625" />
+        <AssociationConnector Association="QLFruitModel.FK__Cart__AccCustome__5165187F" />
+        <AssociationConnector Association="QLFruitModel.FK__Cart__AccCustome__52593CB8" />
+        <AssociationConnector Association="QLFruitModel.FK__Cart__ProductID__534D60F1" />
+        <AssociationConnector Association="QLFruitModel.FK__Cart__ProductID__5441852A" />
+        <EntityTypeShape EntityType="QLFruitModel.CustomerOrder" Width="1.5" PointX="6.75" PointY="4.875" />
+        <AssociationConnector Association="QLFruitModel.FK__CustomerO__AccCu__5535A963" />
+        <AssociationConnector Association="QLFruitModel.FK__CustomerO__AccCu__5629CD9C" />
+        <AssociationConnector Association="QLFruitModel.FK_OrderDetail_CustomerOrder" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

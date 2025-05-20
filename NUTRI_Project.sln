@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUTRI_Project", "NUTRI_Project.csproj", "{1DADC910-803D-4099-9082-22FD79B262F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DADC910-803D-4099-9082-22FD79B262F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DADC910-803D-4099-9082-22FD79B262F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DADC910-803D-4099-9082-22FD79B262F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DADC910-803D-4099-9082-22FD79B262F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F756A2E-EF9E-41BE-999A-139F97325411}
+	EndGlobalSection
+EndGlobal

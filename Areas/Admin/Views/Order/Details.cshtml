@@ -1,0 +1,94 @@
+﻿@model NUTRI_Project.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết Đơn hàng</h2>
+
+<div class="card">
+    <h4>OrderDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerOrder.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerOrder.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product1.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusOrder.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusOrder.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusOrder1.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusOrder1.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <!-- Button for Edit -->
+    <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit", new { id = Model.ID })'">Edit</button>
+    <!-- Button for Back to List -->
+    <button class="btn btn-secondary" onclick="location.href='@Url.Action("Index")'">Back to List</button>
+
+</p>

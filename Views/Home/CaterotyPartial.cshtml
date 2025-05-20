@@ -1,0 +1,7 @@
+﻿
+@model IEnumerable<NUTRI_Project.Models.Categogy>
+@foreach (var item in Model)
+{
+
+    <li><a class="text-decoration-none" href="@Url.Action("SPTheoCaterory","Home", new { id = item.ID})">@item.Name</a></li>
+}

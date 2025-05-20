@@ -1,0 +1,26 @@
+﻿@model IEnumerable<NUTRI_Project.Models.Product>
+@{
+    ViewBag.Title = "Sản Phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="section-title product__discount__title">
+    <h2>Tìm kiếm theo Caterory </h2>
+</div>
+@foreach (var item in Model)
+{
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="product__item">
+            <div class="product__item__pic set-bg">
+                <img class="product__details__pic__item--large" src="~/Image/UploadedFiles/@item.Image" alt="">
+            </div>
+
+            <div class="product__discount__item__text">
+                <h5><a href="#">@item.Name</a></h5>
+                <div class="product__item__price">@String.Format("{0:N0}", item.Price) VNĐ </div>
+                <a href="@Url.Action("Detail", "Home", new { id = item.ID })" class="mt-2 px-5 primary-btn rounded ">Mua Ngay</a>
+            </div>
+        </div>
+    </div>
+
+}
+

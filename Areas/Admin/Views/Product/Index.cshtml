@@ -1,0 +1,121 @@
+﻿@model PagedList.PagedList<NUTRI_Project.Models.Product>
+@using NUTRI_Project.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@helper Truncate(string s, int length)
+{if (s.Length < length)
+    {@s}
+else
+{@s.Substring(0, length)<text>....</text>}}
+<h2 style="text-align:center;">Quản lý thông tin sản phẩm</h2>
+<p>
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-success" })
+</p>
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <tr>
+                <th>
+                    Tên Sản Phẩm
+                </th>
+                <th>
+                    Thông tin
+                </th> 
+                <th >
+                    Ảnh
+                </th>
+                <th>
+                    Địa chỉ Sản Xuất
+                </th>
+                <th>
+                    Giá
+                </th>
+                <th>
+                   Danh Mục
+                </th>
+                <th>
+                  Loại
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Truncate(Html.Raw((item.Info ?? "").Replace("\n", "")).ToString(), 10)
+                    </td> 
+                    <td>
+                        <div class="slide-container">
+                            @{string[] Path = @Html.DisplayFor(modelItem => item.Image).ToString().Split(',');}
+                            @foreach (var image in Path)
+                            {
+                                <img src="~/Image/UploadedFiles/@image" class="img-sm" style="max-width: 80px; max-height: 80px;" />
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categogy.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type.Name)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.ID })" class="btn btn-warning" role="button">Sửa</a>
+                        <a href="@Url.Action("Delete", new { id = item.ID })" class="btn btn-danger" role="button">Xóa</a>
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<nav class="text-center">
+    <div class="MenuTrang">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    </div>
+
+    <div class="pagination">
+        @if (Model.PageNumber > 1)
+        {
+            <a class="btn btn-default" href="@Url.Action("Index", new { page = 1 })"><<</a>
+        }
+        @for (var page = 1; page <= Model.PageCount; page++)
+        {
+            <a class="btn @(Model.PageNumber == page ? "btn-primary" : "btn-default")" href="@Url.Action("Index", new { page = page })">@page</a>
+        }
+        @if (Model.PageNumber < Model.PageCount)
+        {
+            <a class="btn btn-default" href="@Url.Action("Index", new { page = Model.PageCount })">>></a>
+        }
+    </div>
+
+
+    <style>
+        .MenuTrang {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</nav>

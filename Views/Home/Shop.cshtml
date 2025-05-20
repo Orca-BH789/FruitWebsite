@@ -1,0 +1,108 @@
+﻿@using NUTRI_Project.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<NUTRI_Project.Models.Product>
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="breadcrumb-section set-bg " data-setbg="/Image/BG/BG2.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text text-dark">
+                    <h2>Fruit Shop</h2>
+                    <div class="breadcrumb__option">
+                        <a href="./index">Home</a>
+                        <span>- Shop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5">
+                <div class="sidebar">
+                    <div class="sidebar__item">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            @Html.Action("CaterotyPartial", "Home")
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-7">
+                <div class="product__discount">
+                    <div class="section-title product__discount__title">
+                        <h2>Sản Phẩm</h2>
+                    </div>                  
+
+                    <div class="row">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg">
+                                        <img class="product__details__pic__item--large" src="~/Image/UploadedFiles/@item.Image" alt="">
+                                    </div>
+
+                                    <div class="product__discount__item__text">
+                                        <h5><a href="#">@item.Name</a></h5>
+                                        <div class="product__item__price">@String.Format("{0:N0}", item.Price) VNĐ </div>
+                                        <a href="@Url.Action("Detail", "Home", new { id = item.ID })" class="mt-2 px-5 primary-btn rounded ">Mua Ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+
+                    <nav class="product__pagination text-center">
+                        <div class="MenuTrang">
+                            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                        </div>
+
+                        <div class="pagination">
+                            @if (Model.PageNumber > 1)
+                            {
+                                <a class="btn btn-default" href="@Url.Action("Index", new { page = 1 })"><<</a>
+                            }
+                            @for (var page = 1; page <= Model.PageCount; page++)
+                            {
+                                <a class="btn @(Model.PageNumber == page ? "btn-light" : "btn-default")" href="@Url.Action("Index", new { page = page })">@page</a>
+                            }
+                            @if (Model.PageNumber < Model.PageCount)
+                            {
+                                <a class="btn btn-default" href="@Url.Action("Index", new { page = Model.PageCount })">>></a>
+                            }
+                        </div>
+
+
+                        <style>
+                            .MenuTrang {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                text-align: center;
+                            }
+
+                            .pagination {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        </style>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
